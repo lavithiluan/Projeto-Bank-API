@@ -11,7 +11,7 @@ public class Conta {
     private String nomeTitular;
     private String cpfTitular;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataAbertura;
     private Double saldoInicial;
     private TipoConta tipoconta;

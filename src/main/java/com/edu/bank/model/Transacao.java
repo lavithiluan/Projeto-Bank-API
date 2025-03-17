@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Transacao {
 
 
-    @JsonProperty("id")
+    @JsonProperty("idConta")
     private Long idConta;
 
     @JsonProperty("valor")
