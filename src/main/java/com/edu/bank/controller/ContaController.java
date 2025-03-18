@@ -60,8 +60,8 @@ private List<Conta> repository = new ArrayList<>();
     }
 
     @GetMapping("/cpf/{cpf}")
-    public Conta getByCpf(@PathVariable String cpfTitular){ 
-        return findByCpf(cpfTitular);
+    public Conta getByCpf(@PathVariable String cpf){ 
+        return findByCpf(cpf);
     }
     
     @PutMapping("/deposito")
@@ -166,9 +166,9 @@ private List<Conta> repository = new ArrayList<>();
     }
 
 
-    private Conta findByCpf(String cpf) {
+    private Conta findByCpf(String cpfTitular) {
         return repository.stream()
-            .filter(c -> c.getCpfTitular().replaceAll("[^0-9]", "").equals(cpf.replaceAll("[^0-9]", "")))
+            .filter(c -> c.getCpfTitular().replaceAll("[^0-9]", "").equals(cpfTitular.replaceAll("[^0-9]", "")))
             .findFirst()
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
