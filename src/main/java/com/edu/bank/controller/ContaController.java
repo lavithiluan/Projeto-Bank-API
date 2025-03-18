@@ -33,10 +33,10 @@ private List<Conta> repository = new ArrayList<>();
     @ResponseStatus()
     public ResponseEntity<?> stakeholders() {
         String resp = """
-            Projeto Bank
-            -------------------------------------
-            Membros: 
-            - Thiago Henry Dias (Rm554522)
+            Projeto Bank - API de contas bancárias
+            ------------------------------------------
+            Desenvolvedores:
+            ~ Thiago Henry Dias - RM 554522
             """;
         return ResponseEntity.ok(resp);
     }
