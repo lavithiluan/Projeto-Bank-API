@@ -37,15 +37,15 @@ public class Conta {
         return valor;
     }
 
-    private static boolean isDateValid(LocalDate date) {        
-        return !date.isAfter(LocalDate.now());
+    private static boolean isDateValid(LocalDate dataAbertura) {        
+        return !dataAbertura.isAfter(LocalDate.now());
     }
 
-    private boolean isSaldoValid(Double saldo) { 
-        if (saldo == null) {
+    private boolean isSaldoValid(Double saldoInicial) { 
+        if (saldoInicial == null) {
             throw new InvalidParameterException("O valor do saldo não pode ser nulo");
         }
-        return saldo > 0;
+        return saldoInicial > 0;
     }
 
 
@@ -87,7 +87,7 @@ public class Conta {
     public void setDataAbertura(LocalDate dataAbertura) {
         if (dataAbertura == null || !isDateValid(dataAbertura)) { 
             throw new InvalidParameterException("A data de abertura não pode ser nula ou futura");  
-    }
+        }
         this.dataAbertura = dataAbertura;
     }
 
@@ -115,7 +115,7 @@ public class Conta {
     }
 
 
-    public Boolean getStatus() {
+    public Boolean isStatus() {
         return status;
     }
 
@@ -126,14 +126,9 @@ public class Conta {
 
     @Override
     public String toString() {
-        return String.format("Conta [id=%s, nomeTitular=%s, cpfTitular=%s, dataAbertura=%s, saldoInicial=%s, tipoconta=%s, status=%s]", id, nomeTitular, cpfTitular, dataAbertura, saldoInicial, tipoconta, status);
+        return String.format(
+            "Conta [id=%d, nomeTitular=%s, cpfTitular=%s, dataAbertura=%s, saldoInicial=%.2f, tipoConta=%s, status=%b]", 
+            id, nomeTitular, cpfTitular, dataAbertura, saldoInicial, tipoconta, status
+        );
     }
-    
-    
-    
-    
-
-    
-
-    
 }
